@@ -1,0 +1,20 @@
+insert into users (first_name , last_name , created_at , updated_at) value('marky' , 'mark' , now() , now());
+insert into users (first_name , last_name , created_at , updated_at) value('emily' , 'byer' , now() , now())
+;insert into users (first_name , last_name , created_at , updated_at) value('sammi' , 'khaled' , now() , now());
+insert into users (first_name , last_name , created_at , updated_at) value('ali' , 'ahmad' , now() , now());
+insert into users (first_name , last_name , created_at , updated_at) value('doaa' , 'naser' , now() , now());
+insert into users (first_name , last_name , created_at , updated_at) value('ahmad' , 'helmy' , now() , now());
+////////////////////////////////////////////////////////////// /////////////////////
+insert into frindships (user_id , frind_id , created_at , updated_at) value(6 , 3 , now() , now());
+insert into frindships (user_id , frind_id , created_at , updated_at) value(6 , 2 , now() , now());
+insert into frindships (user_id , frind_id , created_at , updated_at) value(1, 2 , now() , now());
+insert into frindships (user_id , frind_id , created_at , updated_at) value(1 , 4 , now() , now());
+insert into frindships (user_id , frind_id , created_at , updated_at) value(1 , 6 , now() , now());
+insert into frindships (user_id , frind_id , created_at , updated_at) value(2 , 3 , now() , now());
+insert into frindships (user_id , frind_id , created_at , updated_at) value(2 , 1 , now() , now());
+insert into frindships (user_id , frind_id , created_at , updated_at) value(2 , 5 , now() , now());etc
+///////////////////////////////////////////////////////////////////
+select users.first_name, users.last_name , users2.first_name , users2.last_name
+from users 
+join frindships on users.id = frindships.user_id
+ join  users as users2 on users2.id = frindships.frind_id;

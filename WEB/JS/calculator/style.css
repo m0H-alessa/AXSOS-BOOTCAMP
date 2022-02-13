@@ -1,0 +1,36 @@
+#calculator{
+    margin:0 auto;
+    width: 230px;
+    height: 350px;
+    padding:10px;
+    background-color: #222222;
+}
+#display{
+    width: inherit;
+    height: 30px;
+    color: white;
+    font-weight: bold;
+}
+.row button{
+    width: 45px;
+    height: 45px;
+    font-size: 15px;
+    padding: 10px;
+    margin: 1px;
+    border-radius: 50%;
+    
+    
+}
+.row{
+    margin-top:10px;
+    padding: 2px;
+
+}
+#operator{
+    background-color: orange;
+    margin-left: 25px;
+}
+#equals{
+    width: 220px;
+    border-radius: 30px ;
+}

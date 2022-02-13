@@ -1,0 +1,26 @@
+.programer{
+    display: flex;
+    margin-left: 20px;
+    border: 1px solid black;
+    width: 350px;
+    height: 170px;
+    padding: 5px;
+    justify-content: space-around;
+    margin-top: 10px;
+}
+.programer-d{
+    display: flex;
+    align-items: center;
+}
+span{
+    color: mediumblue;
+}
+.log{
+    background-color: mediumblue;
+}
+button{
+    background-color: yellow;
+}
+.programer-d div{
+    padding-top: 75px;
+}

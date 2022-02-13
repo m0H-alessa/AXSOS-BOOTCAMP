@@ -1,0 +1,21 @@
+.row{
+    height: 30px;
+    width: 600px;
+    display: flex;
+    background-color: turquoise;
+}
+.col{
+    flex:  1;
+    margin: 5px;
+    background-color: thistle;
+}
+.col-2{
+    flex:  2;
+    margin: 5px;
+    background-color: violet;
+}
+.col-3{
+    flex:  3;
+    margin: 5px;
+    background-color: white;
+}

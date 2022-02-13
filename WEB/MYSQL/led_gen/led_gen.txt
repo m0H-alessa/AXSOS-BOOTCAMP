@@ -1,0 +1,8 @@
+select sum(amount) as revenue , charged_datetime as munth
+from billing 
+where charged_datetime  >= '2012/03/1' AND charged_datetime <= '2012/3/31'
+///////////////////////////////
+select sum(amount) as revenue 
+from billing 
+where client_id = 2;
+/////////////////////////////

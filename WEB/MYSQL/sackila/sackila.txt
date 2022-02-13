@@ -1,0 +1,19 @@
+
+select city.city_id , customer.first_name , customer.last_name , customer.email , city.city , address.address
+from customer 
+left join address on customer.address_id =address.address_id 
+left join city on address.city_id = city.city_id
+where city.city_id = 312;
+///////////////////////////////////////////
+select film.film_id ,film.title , film.description , film.release_year, film.rating, film.special_features ,category.name
+from film_category join film on film_category.film_id = film.film_id
+join category on category.category_id = film_category.category_id
+//////////////////////////////////////////////////////////
+select  film.title , film.description , film.release_year , film.rating, film.special_features, concat(actor.first_name , '  ' , actor.last_name) as actor_name , category.name
+from film_category join category on film_category.category_id = category.category_id
+join film on film_category.film_id = film.film_id
+join film_actor on film.film_id = film_actor.film_id 
+join actor on film_actor.actor_id = actor.actor_id
+/*join category on film_category.category_id = category.category_id*/
+where actor.first_name = 'SANDRA ' and actor.last_name = 'KILMER' and category.name = 'Action' ;
+/////////////////////////////////////////////////////////

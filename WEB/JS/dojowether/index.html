@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main>
+        <nav>
+            <h1>Dojo whether</h1>
+            <span><a onclick="alert('this page says loding wheather report')" href="#">Burbank</a></span>
+            <span><a onclick="alert('this page says loding wheather report')" href="#">Chicago</a></span>
+            <span><a onclick="alert('this page says loding wheather report')" href="#">Dallas</a></span>
+        </nav>
+        <section>
+            <div class="container">
+                <div class="header">
+                    <h2>sane jose</h2>
+                    <div>
+                        <p>show tempreture in</p>
+                        <select onchange="temp(this)">
+                            <option>C</option>
+                            <option>F</option>
+                        </select>
+                    </div>
+                </div>
+                <figure>
+                    <div>
+                        <p>today</p>
+                        <br>
+                        <img src="assets/some_rain.png">
+                        <p>some rain</p>
+                        <p class="temp">
+                            <span class="red1">24</span>
+                            <span class="blue1">18</span>
+                        </p>
+                    </div>
+                    <div>
+                        <p>today</p>
+                        <br>
+                        <img src="assets/some_sun.png">
+                        <p>some sun</p>
+                        <p class="temp">
+                            <span class="red2">27</span>
+                            <span class="blue2">19</span>
+                        </p>
+                    </div>
+                    <div>
+                        <p>today</p>
+                        <br>
+                        <img src="assets/some_clouds.png">
+                        <p>some cloud</p>
+                        <p class="temp">
+                            <span class="red3">21</span>
+                            <span class="blue3">16</span>
+                        </p>
+                    </div>
+                    <div>
+                        <p>today</p>
+                        <br>
+                        <img src="assets/some_sun.png">
+                        <p>some sun</p>
+                        <p class="temp">
+                            <span class="red4">26</span>
+                            <span class="blue4">24</span>
+                        </p>
+                    </div>
+                </figure>
+                <article>
+                    <h2>stop! cookie time</h2>
+                    <div>
+                        <p>we use cookie time (sadly not the edibal ones ) to personlize the content and ads to provide social media feature and to analys
+                            our trafilic <a>red more</a>
+                        </p>
+                        <div>
+                        <button onclick="visiple()" style="width: 70px; height: 30px; background-color: rgb(0, 183, 255);">I Accept</button>
+                    </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>

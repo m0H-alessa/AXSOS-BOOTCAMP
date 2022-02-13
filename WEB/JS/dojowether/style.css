@@ -1,0 +1,91 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+main{
+    margin: 0 auto;
+    border: 1px solid black;
+    width: 750px;
+    height: 550px;
+}
+nav{
+    display: flex;
+    height: 50px;
+    width: inherit;
+    background-color: #9FC5F8;
+    justify-content: center;
+    align-items: center;
+}
+h1{
+    margin: 0 110px 0 0px;
+}
+nav span {
+    margin: 0 25px;
+}
+nav a{
+    text-decoration: none;
+    color: white;
+}
+section{
+    margin: 0 100px;
+    height: 500px;
+}
+.header{
+    height: 45px;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+.container .header div{
+    display: flex;
+    position: absolute;
+    right: 3px;
+}
+select{
+    margin-left: 5px;
+}
+figure{
+    height: 320px;
+    display: flex;
+    justify-content: space-between;
+    border-top: 2px solid black;
+    
+}
+figure div {
+    width:120px ;
+    text-align: center;
+    height: 200px;
+    background-color: #EEEEEE;
+    padding-top: 20px;
+    margin-top: 30px;
+}
+figure img{
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+}
+article{
+    background-color: #EEEEEE;
+    padding: 8px;
+    height: 80px;
+}
+article div {
+    display: flex;
+}
+figure .temp{
+    margin-top: 20px;
+}
+.temp span {
+    padding: 5px;
+}
+.red1,.red2,.red3,.red4{
+    font-weight: bold;
+    color: red;
+}
+.blue1,.blue2,.blue3,.blue4{
+    color:blue;
+    font-weight: bold;
+}
+
+
