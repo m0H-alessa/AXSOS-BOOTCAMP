@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>users with templates</title>
+  </head>
+
+  <body>
+    <h1
+      style="
+        width: 500px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: center;
+      "
+    >
+      All the Users
+    </h1>
+    <br /><br />
+    <table style="border: 2px solid black; width: 500px; margin: 0 auto">
+      <tr>
+        <th style="border: 2px solid black">Id</th>
+        <th style="border: 2px solid black">Name</th>
+        <th style="border: 2px solid black">Email</th>
+        <th style="border: 2px solid black">Age</th>
+      </tr>
+      {% for user in all_the_user %}
+      <tr>
+        <td style="border: 2px solid black">{{user.id}}</td>
+        <td style="border: 2px solid black">
+          {{user.first_name}} {{user.last_name}}
+        </td>
+        <td style="border: 2px solid black">{{user.email}}</td>
+        <td style="border: 2px solid black">{{user.age}}</td>
+      </tr>
+      {% endfor %}
+    </table>
+    <hr style="width: 600px" />
+    <h2
+      style="
+        width: 300px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: center;
+      "
+    >
+      Add a User
+    </h2>
+    <br />
+    <form action="second-route" method="POST">
+      {% csrf_token %}
+      <div
+        class="name"
+        style="
+          height: 50px;
+          width: 530px;
+          display: flex;
+          align-items: center;
+          margin: 0 auto;
+        "
+      >
+        <label>First Name <input type="text" name="name1" /> </label>
+        <label
+          >Last Name
+          <input
+            type="text"
+            name="name2"
+            style="position: relative; left: 20px"
+          />
+        </label>
+      </div>
+      <div
+        class="email_age"
+        style="
+          height: 50px;
+          width: 530px;
+          display: flex;
+          align-items: center;
+          margin: 0 auto;
+          justify-content: center;
+          justify-content: space-evenly;
+        "
+      >
+        <label style="position: relative; right: 5px"
+          >Email <input type="text" name="name3" />
+        </label>
+        <label
+          >Age
+          <input
+            type="number"
+            name="age"
+            style="position: relative; left: 20px"
+          />
+        </label>
+      </div>
+      <div
+        id="btn"
+        style="
+          width: 60px;
+          margin: 0 auto;
+          display: flex;
+          justify-content: center;
+        "
+      >
+        <input
+          type="submit"
+          value="Add"
+          style="width: 90px; height: 30px; box-shadow: 3px 5px black"
+        />
+      </div>
+    </form>
+  </body>
+</html>

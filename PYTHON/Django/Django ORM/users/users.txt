@@ -1,0 +1,14 @@
+1-from app6.models import user
+2-user.objects.create(first_name="jehad",last_name="issa",email="jehadissa93@gmail.com",age=28)
+  user.objects.create(first_name="mohammad",last_name="jamal",email="mohammad93@gmail.com",age=28)
+  user.objects.create(first_name="jamil",last_name="issa",email="jamil93@gmail.com",age=22)
+
+3-user.objects.all().values()
+4-user.objects.last().__dict__
+5-user.objects.first().__dict__
+6-   c=user.objects.get(id=3)
+     c=last_name="pancakes"
+     c.save()
+7- c=user.objects.get(id=2)
+   c.delete()
+8-user.objects.all().order_by("first_name")

@@ -1,0 +1,69 @@
+>>> from books_authors_app.models import Book,Author
+>>> Book.objects.create(title = "c#",desc = "good langurge")
+<Book: Book object (1)>
+>>> Book.objects.create(title = "java",desc = "good langurge")
+<Book: Book object (2)>
+>>> Book.objects.create(title = "python",desc = "good langurge")
+<Book: Book object (3)>
+>>> Book.objects.create(title = "PHP",desc = "good langurge")
+<Book: Book object (4)>
+>>> Book.objects.create(title = "ruby",desc = "good langurge")
+///////////////////////
+<Author: Author object (1)>
+>>> Author.objects.create(first_name = "emgly",last_name = "dicinson")
+<Author: Author object (2)>
+>>> Author.objects.create(first_name = "foyder",last_name = "detoviscy")
+<Author: Author object (3)>
+>>> Author.objects.create(first_name = "wilyam",last_name = "shexper")
+<Author: Author object (4)>
+>>> Author.objects.create(first_name = "lotos",last_name = "toze")
+<Author: Author object (5)>
+///////////////////////////
+>>> book1 = Book.objects.get(title = "c#")
+>>> book1.title = "c#_book"
+>>> book1.save()
+//////////
+>>> author1 = Author.objects.get(id=4)
+>>> author1.first_name = "bill"
+>>> author1.save()
+//////////////////
+>>> booka = Book.objects.get(id=1)
+>>> bookb = Book.objects.get(id=2)
+>>> first_author = Author.objects.get(id=1)
+>>> first_author.books.add(booka)
+>>> first_author.books.add(bookb)
+////////////////
+>>> bookc = Book.objects.get(id=3)
+>>> second_author.books.add(bookb)
+>>> second_author = Author.objects.get(id=2)
+>>> second_author.books.add(booka)
+>>> second_author.books.add(bookb)
+>>> second_author.books.add(bookc)
+////
+>>> third_author = Author.objects.get(id=3)
+>>> bookd = Book.objects.get(id=4)
+>>> third_author.books.add(booka)
+>>> third_author.books.add(bookb)
+>>> third_author.books.add(bookc)
+>>> third_author.books.add(bookd)
+/////
+>>> forth_author = Author.objects.get(id=4)
+>>> booke = Book.objects.get(id=5)
+>>> forth_author.books.add(booka)
+>>> forth_author.books.add(bookb)
+>>> forth_author.books.add(bookc)
+>>> forth_author.books.add(bookd)
+>>> forth_author.books.add(booke)
+/////
+bookc.authors.all()
+bookc.authors.all().values()
+////
+>>> bookc = Book.objects.get(id=3)
+>>> bookc.authors.remove(author_del)
+////
+>>> fifth_author = Author.objects.get(id=5)
+>>> bookb.authors.add(fifth_author)
+///////////
+>>> booke.authors.all()
+<QuerySet [<Author: Author object (4)>]>
+

@@ -1,0 +1,47 @@
+1- Dojo.objects.create(name="hasan",city="jordan",state="JD")
+   Dojo.objects.create(name="jehad",city="palestine",state="PS")
+   Dojo.objects.create(name="mohammad",city="lebanon",state="LB")
+
+2- c=Dojo.objects.get(id=1)
+   c.delete()
+
+   c=Dojo.objects.get(id=2)
+   c.delete()
+
+   c=Dojo.objects.get(id=3)
+   c.delete()
+
+
+3- Dojo.objects.create(name="hasan",city="jordan",state="JD")
+   Dojo.objects.create(name="jehad",city="palestine",state="PS")
+   Dojo.objects.create(name="mohammad",city="lebanon",state="LB")
+
+4- my_ninja = Ninja.objects.create(first_name="ahmad",last_name="jamal" ,dojo=Dojo.objects.get(id=4))
+   my_ninja = Ninja.objects.create(first_name="maher",last_name="ahmad" ,dojo=Dojo.objects.get(id=4))
+   my_ninja = Ninja.objects.create(first_name="saad",last_name="hroub" ,dojo=Dojo.objects.get(id=4))
+
+5- my_ninja = Ninja.objects.create(first_name="mohammad",last_name="issa" ,dojo=Dojo.objects.get(id=5))
+   my_ninja = Ninja.objects.create(first_name="hassan",last_name="odeh" ,dojo=Dojo.objects.get(id=5))
+   my_ninja = Ninja.objects.create(first_name="majde",last_name="issa" ,dojo=Dojo.objects.get(id=5))
+
+6- my_ninja = Ninja.objects.create(first_name="mohannad",last_name="omair" ,dojo=Dojo.objects.get(id=6))
+   my_ninja = Ninja.objects.create(first_name="mohmoud",last_name="jamal" ,dojo=Dojo.objects.get(id=6))
+   my_ninja = Ninja.objects.create(first_name="hanan",last_name="hamdan" ,dojo=Dojo.objects.get(id=6))
+
+7- x=Ninja.objects.filter(dojo_id=4)
+   x.all()
+   for i in x.all():
+    	print(i.first_name)
+      enter
+      enter
+
+8- x=Ninja.objects.filter(dojo_id=6)
+   x.all()
+   for i in x.all():
+    	print(i.first_name)
+      enter
+      enter
+
+9- Ninja.objects.last().dojo
+
+10- Dojo.objects.create(name="hasan",city="jordan",state="JD",desc="j" )

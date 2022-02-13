@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        text-align: center;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+      }
+      h4 {
+        width: 200px;
+        height: 200px;
+        color: white;
+        background-color: red;
+      }
+      span {
+        margin-top: 100px;
+        height: 200px;
+      }
+      .hl {
+        text-align: center;
+        margin-top: 80px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Welcome to the Great Number Game!</h1>
+    <h3>I am thinking of a number between 1 and 100</h3>
+    <h3>Take a guess</h3>
+    {% if request.session.result == "Too High" %}
+    <h4><p class="hl">Too High</p></h4>
+    {% endif %} {% if request.session.result == "Too Low" %}
+    <h4><p class="hl">Too Low</p></h4>
+    {% endif %} {% if request.session.result == "Correct Number" %}
+    <h4><p class="hl">Was the number</p></h4>
+    {% endif %}
+    <form action="/result" method="post">
+      {% csrf_token %}
+      <input type="number" name="random" />
+      <p><input type="submit" value="Submit" /></p>
+    </form>
+  </body>
+</html>

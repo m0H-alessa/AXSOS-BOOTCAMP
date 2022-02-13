@@ -1,0 +1,20 @@
+tbody tr td {
+  width: 100px;
+  height: 100px;
+}
+
+tbody {
+  margin-bottom: 100px;
+}
+table {
+  border-spacing: 0px;
+}
+
+.color1 {
+  background-color: red;
+  display: inline-block;
+}
+.color2 {
+  background-color: black;
+  display: inline-block;
+}

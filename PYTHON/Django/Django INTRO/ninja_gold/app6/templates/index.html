@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+      integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+      crossorigin="anonymous"
+    />
+    <title>MONEY MINE</title>
+  </head>
+  <style>
+    #container {
+      padding: 25px;
+    }
+    #mines {
+      margin-top: 100px;
+      display: flex;
+      justify-content: space-between;
+    }
+    .loc {
+      border: 2px solid black;
+      height: 250px;
+      width: 250px;
+    }
+    .loc h3,
+    h6 {
+      text-align: center;
+    }
+    #active {
+      margin-top: 80px;
+    }
+    textarea {
+      width: 100%;
+    }
+    #textbox {
+      overflow: scroll;
+      border: 1px solid black;
+      height: 200px;
+    }
+    .green {
+      color: green;
+    }
+    .red {
+      color: red;
+    }
+  </style>
+  <body>
+    <div id="container">
+      <h1>Your Gold:{{gold}}</h1>
+      <div id="mines">
+        <div class="loc">
+          <form action="/process/farm" method="post">
+            {% csrf_token %}
+            <h3>Farm</h3>
+            <h6>(earns 10 to 20 golds)</h6>
+            <input
+              class="btn btn-primary center-block"
+              type="submit"
+              name="location"
+              value="Find Gold"
+            />
+          </form>
+        </div>
+        <div class="loc">
+          <form action="/process/cave" method="post">
+            {% csrf_token %}
+            <h3>Cave</h3>
+            <h6>(earns 5 to 10 golds)</h6>
+            <input
+              class="btn btn-primary center-block"
+              type="submit"
+              name="location"
+              value="Find Gold"
+            />
+          </form>
+        </div>
+        <div class="loc">
+          <form action="/process/house" method="post">
+            {% csrf_token %}
+            <h3>House</h3>
+            <h6>(earns 2 to 5 golds)</h6>
+            <input
+              class="btn btn-primary center-block"
+              type="submit"
+              name="location"
+              value="Find Gold"
+            />
+          </form>
+        </div>
+        <div class="loc">
+          <form action="/process/casino" method="post">
+            {% csrf_token %}
+            <h3>Casino</h3>
+            <h6>(earns/takes 0 to 50 golds)</h6>
+            <input
+              class="btn btn-primary center-block"
+              type="submit"
+              name="location"
+              value="Find Gold"
+            />
+          </form>
+        </div>
+      </div>
+      <div id="active">
+        <h2>Activities:</h2>
+        <div class="form-group">
+          <div id="textbox">
+            {% if activities %} {% for color in activities %}
+            <p class="{{color.class}}">{{color.content}}</p>
+            {% endfor %} {% else %}
+            <h4>No Activity</h4>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+      <a class="btn btn-primary" href="/reset">Click to reset game</a>
+    </div>
+  </body>
+</html>

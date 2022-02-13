@@ -1,0 +1,1 @@
+call C:\Users\2021\Documents\testingVirtualEnv\Env\Scripts\activate
