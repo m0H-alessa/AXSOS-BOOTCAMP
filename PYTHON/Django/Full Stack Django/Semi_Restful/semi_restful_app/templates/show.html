@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    body {
+      margin: 20px;
+    }
+
+    table {
+      border: 1px solid black;
+      width: 700px;
+      border-collapse: collapse;
+    }
+    tr,
+    td,
+    th {
+      border: 1px solid black;
+    }
+  </style>
+  <body>
+    <h2>All Shows</h2>
+    <table>
+      <tr>
+        <th>id</th>
+        <th>title</th>
+        <th>network</th>
+        <th>releas data</th>
+        <th>actions</th>
+      </tr>
+      {%for key in tvs%}
+      <tr>
+        <td>{{key.id}}</td>
+        <td>{{key.title}}</td>
+        <td>{{key.network}}</td>
+        <td>{{key.desc}}</td>
+        <td>{{key.releas}}</td>
+        <td>
+          <a href="/read/{{key.id}}">Show </a> |
+          <a href="/show/{{key.id}}/edit">Edit </a> |
+          <a href="/delet/{{key.id}}/edit">Delete </a>
+        </td>
+      </tr>
+      {%endfor%}
+    </table>
+    <br />
+    <a href="/new">Add a New Show</a>
+  </body>
+</html>

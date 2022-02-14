@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body style="margin: 40px">
+    <h2>TV Show {{showz.id}}</h2>
+    <a
+      href="/show"
+      style="display: block; position: relative; left: 1100px; bottom: 50px"
+      >Go Back
+    </a>
+    <p>title: {{showz.title}}</p>
+    <p>network: {{showz.network}}</p>
+    <p>releas date: {{showz.relese}}</p>
+    <p>description: {{showz.desc}}</p>
+    <br /><br /><br />
+    <p>last updated: {{showz.updated_at}}</p>
+    <p>
+      <a href="/show/{{showz.id}}/edit">Edit</a> |
+      <a href="/delet/{{showz.id}}/edit">Delete</a>
+    </p>
+  </body>
+</html>

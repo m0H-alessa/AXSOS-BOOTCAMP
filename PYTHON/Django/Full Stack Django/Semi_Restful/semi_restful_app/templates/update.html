@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      form {
+        margin: 20px auto;
+        width: 500px;
+        display: flex;
+        flex-direction: column;
+      }
+      form div {
+        display: flex;
+        width: 380px;
+        justify-content: space-between;
+      }
+      .btn {
+        width: 60px;
+        box-shadow: 5px 5px 5px black;
+        position: relative;
+        left: 160px;
+      }
+      .goback {
+        position: relative;
+        left: 1100px;
+      }
+      .go {
+        position: relative;
+        left: 505px;
+      }
+    </style>
+  </head>
+  <body>
+    <a class="goback" href="/show">Go Back</a>
+    <form action="/print/{{show_id.id}}/edit" method="post">
+      <h1>Edit Show {{show_id.id}}</h1>
+      {% csrf_token %}
+      <p>Title <br /><input type="text" name="title" style="width: 375px" /></p>
+      <div>
+        <p>Network <br /><input type="text" name="network" /></p>
+        <p>
+          Release data <br />
+          <input type="date" name="releas" />
+        </p>
+      </div>
+      <p>
+        description <br />
+        <textarea name="desc" id="" cols="50" rows="10"></textarea>
+      </p>
+      <button class="btn" type="submit">create</button>
+    </form>
+    <a class="go" href="/read/{{show_id.id}}">Go To Show</a>
+  </body>
+</html>
