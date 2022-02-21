@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>login&registration</title>
+  </head>
+  <style>
+    body {
+      display: flex;
+      justify-content: space-evenly;
+    }
+    .reg {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 350px;
+      height: 600px;
+    }
+    .log {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 350px;
+      height: 600px;
+    }
+    form{
+        width: 300px;
+        height: 400px;
+    }
+    .row{
+        display: flex;
+        justify-content: space-between;
+    }
+    button{
+        position: relative;
+        left: 100px;
+        width: 80px;
+        border: 2px solid black;
+        font-weight: bold;
+        box-shadow:  3px 3px black;
+    }
+  </style>
+  <body>
+    <div class="reg">
+        <h1>Registration</h1>
+        <form action="/register" method="POST">
+        {% csrf_token %}
+            <div class="row"><label for="first_name">First Name</label><input type="text" name="first_name" /></div><br>
+            <div class="row"><label for="last_name">Last Name</label><input type="text" name="last_name" /></div><br>
+            <div class="row"><label for="email">Email</label><input type="text" name="email" /></div><br>
+            <div class="row"><label for="password">Password</label><input type="password" name="password" /></div><br>
+            <div class="row"><label for="con_pass">Confirm PW</label><input type="password" name="con_pass" /></div><br>
+            <br>
+            <button type="submit">Register</button>
+        {% if 'coming' in request.session %}
+            {% if request.session.coming == 'REGISTER' %}
+                {% if messages %}
+                    <ul class="messages">
+                        {% for message in messages %}
+                        <li {% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+            {% endif %}
+        {% endif %}
+    </form>
+    </div>
+    <div class="log">
+        <h1>Login</h1>
+        <form action="/login" method="POST">
+        {% csrf_token %}
+            <div class="row"><label for="email">Email</label><input type="text" name="email" /></div><br>
+            <div class="row"><label for="password">Password</label><input type="password" name="password" /></div> <br>
+            <br>
+            <button type="submit">Login</button>
+        {% if 'coming' in request.session %}
+            {% if request.session.coming == 'LOGIN' %}
+                {% if messages %}
+                    <ul class="messages">
+                        {% for message in messages %}
+                        <li {% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+            {% endif %}
+        {% endif %}
+    </form>
+    </div>
+  </body>
+</html>

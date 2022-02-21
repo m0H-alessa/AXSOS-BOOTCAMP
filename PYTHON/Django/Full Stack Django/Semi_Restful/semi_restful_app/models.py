@@ -1,15 +1,15 @@
 from datetime import datetime
 from django.db import models
 
-class BlogManager(models.Manager):
+class ShowManager(models.Manager):
     def basic_validator(self, postData):
         errors = {}
         if len(postData['title']) < 3:
-            errors["title"] = "Blog title should be at least 3 characters"
+            errors["title"] = "the title should be at least 3 characters"
         if len(postData['network']) < 3:
-            errors["network"] = "Blog network should be at least 3 characters"
+            errors["network"] = "the network should be at least 3 characters"
         if len(postData['desc']) < 10:
-            errors["desc"] = "Blog description should be at least 10 characters"
+            errors["desc"] = "description description should be at least 10 characters"
         return errors
 
 class Show(models.Model):
@@ -19,5 +19,5 @@ class Show(models.Model):
     releas =models.DateTimeField()
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
-    objects = BlogManager()
+    objects = ShowManager()
 

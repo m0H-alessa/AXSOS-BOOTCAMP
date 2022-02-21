@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Favorite Books</title>
+  </head>
+  <style>
+    nav {
+      display: flex;
+      justify-content: space-between;
+      border-bottom: 3px solid black;
+      padding: 15px;
+    }
+    .row {
+      display: flex;
+      justify-content: space-between;
+    }
+    .container {
+      display: flex;
+      width: 900px;
+      justify-content: space-between;
+      height: 600px;
+      padding: 15px;
+    }
+    .ltside {
+      display: flex;
+      flex-direction: column;
+      width: 400px;
+    }
+    .rtside {
+      width: 400px;
+    }
+    .update {
+      position: relative;
+      left: 75px;
+      border: 2px solid black;
+      box-shadow: 3px 3px black;
+    }
+    .delete {
+      position: relative;
+      left: 75px;
+      border: 2px solid black;
+      box-shadow: 3px 3px black;
+      background-color: red;
+      color: white;
+    }
+  </style>
+  <body>
+    <nav>
+      <h1>Welcome,{{this_user.first_name}} !</h1>
+      <a href="/clear">Log Out</a>
+    </nav>
+    <div class="container">
+    <div class="ltside">
+        <form action="/books/{{this_book.id}}/update" method="POST">
+          {% csrf_token %}
+    <h3>{{this_book.title}}</h3>
+    <p>Added by: {{this_user.first_name}} {{this_user.last_name}}</p>
+    <p>Added on: {{this_book.created_at}}</p>
+    <p>Last updated on: {{this_book.updated_at}}</p>
+    {% if request.session.user_id == this_book.uploaded_by.id %}
+    <div class="row"><label for="desc">Description</label><textarea name="desc" cols="40" rows="5">{{this_book.description}}</textarea></div><br>
+    <button class="update" type="submit" value="update" name="btn">Update</button>
+    <button class="delete" type="submit" value="delete" name="btn">Delete</button>
+    </form>
+    {%else%}
+    <p>Description : {{this_book.description}}</p>
+    {% endif %}
+  </div>
+    <div class="rtside">
+        <h3>Users Who Like This Book</h3>
+        {% for x in this_book.users_who_like.all%}
+        <p>{{x.first_name}} {{x.last_name}}</p>
+        <p><a href="/books/{{this_book.id}}/remove">Un-Favorite</a></p>
+        {%endfor%}
+    </div>
+</div>
+  </body>
+</html>

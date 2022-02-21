@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>wall</title>
+    <style>
+        body{
+            font-family: Calibri;
+        }
+      nav {
+        display: flex;
+        justify-content: space-between;
+        border: 3px black solid;
+        padding: 5px;
+      }
+      .insidenav {
+        display: flex;
+        justify-content: space-between;
+        width: 150px;
+      }
+      .main {
+        display: flex;
+        flex-direction: column;
+        margin: auto 162px;
+        padding: 10px;
+        justify-content: space-between;
+      }
+      textarea {
+        border: 2px black solid;
+      }
+      .post{
+          position: relative;left: 755px;
+          border: 2px black solid;
+          box-shadow: 3px 3px black;
+          background-color: blue;
+          color: white;
+      }
+      .comment{
+        position: relative;left: 755px;
+          border: 2px black solid;
+          box-shadow: 3px 3px black;
+          background-color: green;
+          color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <h1>Coding Dojo Wall</h1>
+      <div class="insidenav">
+        <h5>welcome</h5>
+        <h5><a href="/">Log Off</a></h5>
+      </div>
+    </nav>
+    <br><br>
+    <div class="main">
+      <form action="/wall" method="POST">
+        {% csrf_token %}
+        <label style="font-weight: bold;">Post a Message</label><br />
+        <textarea name="post_message" id="" cols="115" rows="5"></textarea>
+        <input class="post" type="submit" name="post" value="Post a Message" >
+        {% for message in user.Messages.all %}
+            <p> {{message.message}} </p>
+        {% endfor %}
+      </form>
+      <form action="/wall" method="POST">
+        {% csrf_token %}
+        <label style="font-weight: bold;">Post a Comment</label><br />
+        <textarea name="post_comment" id="" cols="115" rows="5"></textarea>
+        <input class="comment" type="submit" name="comment" value="Post a Comment" >
+      </form>
+    </div>
+  </body>
+</html>

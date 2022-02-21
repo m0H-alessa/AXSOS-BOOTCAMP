@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Favorite Books</title>
+  </head>
+  <style>
+    nav {
+      display: flex;
+      justify-content: space-between;
+      border-bottom: 3px solid black;
+      padding: 15px;
+    }
+    .row{
+      display: flex;
+      justify-content: space-between;
+    }
+    .container {
+      display: flex;
+      width: 900px;
+      justify-content: space-between;
+      height: 600px;
+      padding: 15px;
+    }
+    .formbook {
+      display: flex;
+      flex-direction: column;
+      width: 400px;
+    }
+    .allbooks {
+      width: 400px;
+    }
+    .add{
+      position: relative;
+      left: 75px;
+      border: 2px solid black;
+      box-shadow: 3px 3px black ;
+
+    }
+  </style>
+  <body>
+    <nav>
+      <h1>Welcome,{{this_user.first_name}} !</h1>
+      <a href="/clear">Log Out</a>
+    </nav>
+    <div class="container">
+      <div class="formbook">
+        <h3>Add a Favorite Book</h3>
+        <form action="/books/add_book" method="POST">
+          {% csrf_token %}
+          <div class="row"><label for="title">Title</label><input type="text" name="title" style="width: 307px;" /></div><br>
+          <div class="row"><label for="desc">Description</label><textarea name="desc" cols="40" rows="5"></textarea></div><br>
+          <button class="add" type="submit">Add</button>
+        </form>
+      </div>
+      <div class="allbooks">
+        <h2>All Books</h2>
+        {% for i in this_book %}
+        <ul>
+          
+          <li>
+            <a href="/books/{{i.id}}">{{i.title}}</a>
+          </li>
+          <li>
+            (Added by {{i.uploaded_by.first_name}} {{i.uploaded_by.last_name}})
+          </li>
+          {% if i in favorites %}
+          <p>This book in one of your favourites</p>
+          {% else %}
+          <li>
+            <a href="/books/add_fav/{{i.id}}">Add to favorite</a>
+          </li>
+          {%endif%}
+        </ul>
+        {%endfor%}
+      </div>
+    </div>
+  </body>
+</html>

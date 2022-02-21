@@ -29,7 +29,7 @@ def add(request):
         Show.objects.create(title = request.POST['title'],network = request.POST['network'],desc = request.POST['desc'],
         releas = request.POST['releas'])
         c =Show.objects.get(title = request.POST['title'])
-        messages.success(request, "Blog successfully updated")
+        messages.success(request, "Show successfully updated")
         return redirect("/read/" + str(c.id))
 
 def update(request,edit_id):
