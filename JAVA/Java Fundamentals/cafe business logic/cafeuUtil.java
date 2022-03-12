@@ -12,11 +12,6 @@ public class cafeuUtil {
     }
 
     public double getOrderTotal(double[] prices) {
-        // ArrayList<Double> lineItems = new ArrayList<Double>();
-        // lineItems.add(3.5);
-        // lineItems.add(1.5);
-        // lineItems.add(4.0);
-        // lineItems.add(4.5);
         double[] lineItems = { 3.5, 1.5, 4.0, 4.5 };
         double total = 0.0;
         for (int i = 0; i < lineItems.length; i++) {
