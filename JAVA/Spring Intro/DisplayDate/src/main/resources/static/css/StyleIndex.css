@@ -1,0 +1,18 @@
+.date{
+	height:250px;
+	width:50%;
+	padding-top: 150px;
+    font-size: 30px;
+}
+
+.time{
+	width:50%;
+	height:250px;
+	padding-top: 150px;
+    font-size: 30px;
+}
+
+.container{
+	display:flex;
+text-align: center;
+}
