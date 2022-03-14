@@ -1,11 +1,11 @@
-package com.fruityloops;
+package com.fruityloops.controllers;
 
 import java.util.ArrayList;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import com.fruityloops.model.Item;
+import com.fruityloops.models.Item;
 
 
 @Controller
