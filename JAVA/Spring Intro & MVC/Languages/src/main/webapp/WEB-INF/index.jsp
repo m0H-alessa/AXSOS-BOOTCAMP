@@ -30,40 +30,38 @@
                 <td> <c:out value="${lang.creator}"> </c:out> </td>
                 <td> <c:out value="${lang.version}"> </c:out> </td>
                 <td> <a href="languages/${lang.id}/edit">edit</a></td>
-                <td><form action="/languages/${lang.id}" method="post">
-    <input type="hidden" name="_method" value="delete">
-    <input type="submit" value="Delete">
- </td>
+                <td><form action="/languages/${lang.id}" method="post"></form>
+				    <input type="hidden" name="_method" value="delete">
+				    <input type="submit" value="Delete">
+				</td>
               </tr>
               </c:forEach>
             </tbody>
           </table>
         </div>
       </div>
-       <div class="row">
-       <form:form action="/languages" method="post" modelAttribute="language" >
-       
-    <p>
+ <div class="row">
+ 	<div class="col-6 offset-3 border border-2 border-dark p-3">
+    <form:form action="/languages" method="post" modelAttribute="language" >
+    <div class="form-group">
         <form:label path="name">Language name:</form:label>
         <form:errors path="name"/>
         <form:input path="name"/>
-    </p>
-    <p>
+	</div>
+	<div class="form-group">
         <form:label path="creator">Creator:</form:label>
         <form:errors path="creator"/>
         <form:input path="creator"/>
-    </p>
-    <p>
+   </div>
+    <div class="form-group">
         <form:label path="version">Version:</form:label>
         <form:errors path="version"/>
         <form:input path="version"/>
-    </p>
-   
+    </div>
     <input type="submit" value="Submit" class="btn btn-primary"/>
 </form:form>
-    
-       
-       </div>
-    </div>
+	</div>
+ </div>
+</div>
 </body>
 </html>
