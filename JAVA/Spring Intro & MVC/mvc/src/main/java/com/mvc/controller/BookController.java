@@ -18,7 +18,7 @@ public class BookController {
 	BookService bookService;
 	
 @RequestMapping("books/{bookId}")
-public String HavingTheBook(Model model,@PathVariable("bookId") Long bookId) {
+public String FindingTheBook(Model model,@PathVariable("bookId") Long bookId) {
 	Book book = bookService.findBook(bookId);
 	model.addAttribute("book", book);
 	return "show.jsp";

@@ -10,8 +10,12 @@
 </head>
 <link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css" />
 <body>
-<h1>All Books</h1>
 <div class="container mt-5">
+	<div class="row">
+        <div class="col-6 offset-3 p-3">
+			<h1>All Books</h1>
+		</div>
+	</div>
       <div class="row">
         <div class="col-6 offset-3 border border-2 border-dark p-3">
           <table class="table table-striped">
@@ -27,9 +31,10 @@
             	<c:forEach var="book" items="${books}">
               <tr>
                 <td><c:out value="${book.id}"></c:out></td>
-                <td><a href="/books/{book.Id}"><c:out value="${book.title}"></c:out></a></td>
+                <td><a href="/books/${book.id}"><c:out value="${book.title}"></c:out></a></td>
                 <td><c:out value="${book.language}"> </c:out></td>
                 <td><c:out value="${book.numberOfPages}"> </c:out></td>
+                </tr>
                 </c:forEach>
             </tbody>
           </table>
