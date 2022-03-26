@@ -38,6 +38,7 @@
                 <th scope="col">Title</th>
                 <th scope="col">Author Name</th>
                 <th scope="col">PostedBy</th>
+                <th scope="col">Action</th>
               </tr>
             </thead>
             <tbody>
@@ -47,12 +48,53 @@
                 <td><a href="/show/<c:out value="${book.id}"></c:out> "><c:out value="${book.title}"></c:out></a></td>
                 <td><c:out value="${book.author}"> </c:out></td>
                 <td><c:out value="${book.user.userName}"> </c:out></td>
+                <c:choose>
+				    <c:when test="${book.user.userName == thisUser.userName}">
+				         <td><a href="/edit/<c:out value="${book.id}"></c:out> ">Edit</a></td><td>
+				         <form action="/delete/${book.id}" method="post">
+						    <input type="hidden" name="_method" value="delete">
+						    <input type="submit" value="Delete">
+						</form>
+				         <a href="/delete/<c:out value="${book.id}"></c:out> ">delete</a></td>
+				    </c:when>    
+				    <c:otherwise>
+				        <td><a href="/borrow/<c:out value="${book.id}"></c:out> ">borrow</a></td> 
+				    </c:otherwise>
+				</c:choose>
                 </tr>
                 </c:forEach>
             </tbody>
           </table>
         </div>
       </div>
+      <div class="row">
+        <div class="col-6 offset-3 p-3">
+			<h5>Books am borrowing...</h5>
+		</div>
+      <div class="col-6 offset-3 border border-2 border-dark p-3">
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Title</th>
+                <th scope="col">Author Name</th>
+                <th scope="col">PostedBy</th>
+                <th scope="col">Action</th>
+              </tr>
+            </thead>
+            <tbody>
+            	<c:forEach var="book" items="${borrowedBooks}">
+              <tr>
+                <td><c:out value="${book.id}"></c:out></td>
+                <td><a href="/show/<c:out value="${book.id}"></c:out> "><c:out value="${book.title}"></c:out></a></td>
+                <td><c:out value="${book.author}"> </c:out></td>
+                <td><c:out value="${book.user.userName}"> </c:out></td>
+                <td><a href="/return/<c:out value="${book.id}"></c:out> ">return</a></td>
+                </tr>
+                </c:forEach>
+            </tbody>
+          </table>
+        </div>
     </div>
 </body>
 </html>

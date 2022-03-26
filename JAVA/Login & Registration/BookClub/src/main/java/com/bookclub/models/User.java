@@ -37,16 +37,21 @@ private String password;
 private String confirm;
 @OneToMany(mappedBy="user", fetch = FetchType.LAZY)
 private List<Book> books;
+
+@OneToMany(mappedBy="borrow", fetch = FetchType.LAZY)
+private List<Book> borrowedBooks;
+
 private Date createdAt;
 private Date updatedAt;
 
 public User() {}
 
-public User(String userName, String email, String password, String confirm) {
+public User(String userName, String email, String password, String confirm, List<Book> borrowedBooks ) {
 	this.userName = userName;
 	this.email = email;
 	this.password = password;
 	this.confirm = confirm;
+	this.borrowedBooks= borrowedBooks;
 }
 
 public Long getId() {
@@ -87,6 +92,16 @@ public List<Book> getBooks() {
 public void setBooks(List<Book> books) {
 	this.books = books;
 }
+
+
+public List<Book> getBorrowedBooks() {
+	return borrowedBooks;
+}
+
+public void setBorrowedBooks(List<Book> borrowedBooks) {
+	this.borrowedBooks = borrowedBooks;
+}
+
 @PrePersist
 protected void onCreate(){
     this.createdAt = new Date();

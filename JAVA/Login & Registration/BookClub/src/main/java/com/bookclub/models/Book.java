@@ -31,6 +31,11 @@ import javax.validation.constraints.Size;
 	@NotEmpty(message="please enter your thoughts")
 	@Size(min=10, max=300, message="your thoughts must be between 10 and 300 characters")
 	private String thought;
+	
+	@ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name="borrow_id")
+    private User borrow;
+	
 	@ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="user_id")
     private User user;
@@ -39,11 +44,12 @@ import javax.validation.constraints.Size;
 	
 	public Book() {}
 
-	public Book(String author, String title, String thought, User user) {
+	public Book(String author, String title, String thought, User user, User borrow) {
 		this.author = author;
 		this.title = title;
 		this.thought = thought;
 		this.user = user;
+		this.borrow =borrow;
 	}
 
 	public Long getId() {
@@ -84,6 +90,15 @@ import javax.validation.constraints.Size;
 
 	public void setUser(User user) {
 		this.user = user;
+	}
+	
+
+	public User isBorrow() {
+		return borrow;
+	}
+
+	public void setBorrow(User borrow) {
+		this.borrow = borrow;
 	}
 
 	@PrePersist

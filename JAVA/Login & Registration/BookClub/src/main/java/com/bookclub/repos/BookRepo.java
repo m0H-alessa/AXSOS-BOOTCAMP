@@ -11,4 +11,7 @@ import com.bookclub.models.Book;
 @Repository
 public interface BookRepo extends CrudRepository<Book, Long> {
 List<Book>findAll();
+List<Book> findByBorrowNull();
+List<Book> findByBorrowNotNull();
+
 }

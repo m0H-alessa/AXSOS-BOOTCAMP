@@ -2,16 +2,23 @@ package com.bookclub.services;
 
 import java.util.List;
 import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
 import com.bookclub.models.Book;
+import com.bookclub.models.User;
 import com.bookclub.repos.BookRepo;
+import com.bookclub.repos.UserRepo;
+
 
 @Service
 public class BookService {
 	
 	@Autowired
 	BookRepo bookRepo;
+	@Autowired
+	UserRepo userRepo;
 	
 	public List<Book> allBooks(){
 		return bookRepo.findAll();
@@ -38,4 +45,27 @@ public class BookService {
 		bookRepo.save(book);
 	}
 	
+	public void borrowBook(Book book,User user) {
+		book.setBorrow(user);
+		bookRepo.save(book);
+	}
+	public void returnBook(Book book) {
+		book.setBorrow(null);
+		bookRepo.save(book);
+	}
+	
+	public List<Book> areBorrowed(){
+		return bookRepo.findByBorrowNotNull();
+	}
+	
+	public List<Book> notBorrowed(){
+		return bookRepo.findByBorrowNull();
+	}
+	
+	public void deleteBook(User user ,Book book) {
+		user.getBooks().remove(book);
+	    userRepo.save(user);
+	}
 }
+	
+	

@@ -5,7 +5,6 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,11 +14,11 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
-
 import com.bookclub.models.Book;
 import com.bookclub.models.User;
 import com.bookclub.services.BookService;
 import com.bookclub.services.UserService;
+
 
 @Controller
 public class BookClubController {
@@ -31,10 +30,11 @@ public class BookClubController {
 	
 @GetMapping("/books")
 public String homePage(@ModelAttribute("books")Book book, Model model, HttpSession session) {
-	List<User> users=userService.allUsers();
-	model.addAttribute("users",users);
-	List<Book> books=bookService.allBooks();
+	
+	List<Book> books=bookService.notBorrowed();
+	List<Book> borrowedBooks=bookService.areBorrowed();
 	model.addAttribute("books",books);
+	model.addAttribute("borrowedBooks",borrowedBooks);
 	Long user_id = (Long) session.getAttribute("user_id");
 	User thisUser = userService.findById(user_id);
 	model.addAttribute("thisUser",thisUser);
@@ -100,5 +100,32 @@ public String editBook(Model model, @PathVariable("id") Long id, @Valid @ModelAt
     	bookService.updateBook(book, id);
         return "redirect:/show/"+id;
 }
+}
+
+
+@GetMapping("/borrow/{id}")
+public String borrow(@PathVariable("id") Long id,HttpSession session) {
+	Book book = bookService.findById(id);
+	Long user_id = (Long) session.getAttribute("user_id");
+	User thisUser = userService.findById(user_id);
+	bookService.borrowBook(book,thisUser);
+	return "redirect:/books";
+}
+
+@GetMapping("/return/{id}")
+public String returnbook(@PathVariable("id") Long id) {
+	Book book = bookService.findById(id);
+	bookService.returnBook(book);
+	return "redirect:/books";
+}
+
+@GetMapping("/delete/{id}")
+public String deleteBook(@PathVariable Long proid ,HttpSession session) {
+	Book thisBook = bookService.findById(proid);
+	Long id = (Long) session.getAttribute("user_id");
+	User thisUser = userService.findById(id);
+	bookService.deleteBook(thisUser ,thisBook);
+	return "redirect:/Books";
+
 }
 }
