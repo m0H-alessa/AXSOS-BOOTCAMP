@@ -1,0 +1,26 @@
+
+.App{
+  background-color: rgb(44, 40, 40);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.box{
+  border: green solid 2px ;
+  border-radius: 20px 20px 20px;
+  width: 450px;
+  height: 180px;
+  margin: 10px;
+  color: white;
+  text-align: center;
+}
+
+.btn{
+  background-color: rgb(43, 8, 66);
+  color: rgb(167, 167, 167);
+  border-radius: unset;  
+  font-weight: bold;
+  height: 30px;
+}
