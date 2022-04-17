@@ -1,0 +1,15 @@
+
+.App{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.btn{
+  margin-top: 20px;
+  width: 180px;
+  height: 40px;
+  background-color: rgb(189, 114, 17);
+  font-size: larger;
+}
