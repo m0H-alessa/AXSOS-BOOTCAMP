@@ -1,0 +1,25 @@
+.main-coutniner {
+display: flex;
+flex-direction: column;
+padding: 5rem;
+}
+
+.list-item-parent {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1rem;
+    list-style-type: none;
+    width: 100%;
+}
+
+.divider{ 
+    border-left: 2px solid black;
+    height: 35px;
+}
+
+.list-item-child {
+    font-size: 1.4rem;
+    font-weight: 700;
+    cursor: pointer;
+}

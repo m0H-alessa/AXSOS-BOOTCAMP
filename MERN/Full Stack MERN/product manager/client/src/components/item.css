@@ -1,0 +1,39 @@
+.item {
+  padding: 4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+}
+
+.main-view {
+  background-color: #2e2e2e;
+  height: 300px;
+  max-width: 100%;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+.row-view {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.key-label {
+  font-size: 1rem;
+  font-weight: bolder;
+  color: #fff;
+  margin: 0;
+}
+
+label {
+  font-size: 0.988rem;
+  font-weight: 700;
+  color: rgb(201, 201, 201);
+}

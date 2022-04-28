@@ -1,0 +1,13 @@
+.main-coutniner-ManagePlayer {
+  margin-left: 3rem;
+  border: 1px solid black;
+  width: 80%;
+  min-height: 500px;
+  max-height: 100%;
+  background-color: white;
+  border-radius: 10px;
+}
+
+.child-warpper {
+  padding: 1rem 2rem 1rem 2rem;
+}
